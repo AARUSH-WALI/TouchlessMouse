@@ -1,0 +1,35 @@
+{
+  "built_in": {
+    "index_up": {
+      "action": "move_cursor",
+      "description": "Move cursor with index finger"
+    },
+    "thumb_index_pinch": {
+      "action": "left_click",
+      "description": "Left click (hold for drag)"
+    },
+    "thumb_middle_pinch": {
+      "action": "right_click",
+      "description": "Right click"
+    },
+    "index_middle_up": {
+      "action": "scroll",
+      "description": "Scroll up/down with hand movement"
+    },
+    "open_palm": {
+      "action": "pause_tracking",
+      "description": "Pause tracking (safety)"
+    },
+    "fist": {
+      "action": "idle",
+      "description": "No action"
+    }
+  },
+  "custom": {
+    "thumbs_up": {
+      "action": "key_press",
+      "action_params": {"key": "space"},
+      "description": "User-trained: play/pause"
+    }
+  }
+}

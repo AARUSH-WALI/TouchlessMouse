@@ -1,0 +1,96 @@
+{
+  "camera": {
+    "device_index": 0,
+    "width": 640,
+    "height": 480,
+    "fps_cap": 30,
+    "mirror": true,
+    "process_every_n_frames": 1
+  },
+  "hand_tracker": {
+    "model_path": "models/hand_landmarker.task",
+    "num_hands": 1,
+    "min_detection_confidence": 0.7,
+    "min_tracking_confidence": 0.5,
+    "running_mode": "VIDEO"
+  },
+  "cursor": {
+    "active_region": {
+      "left": 0.15,
+      "right": 0.85,
+      "top": 0.15,
+      "bottom": 0.85
+    },
+    "smoothing_type": "one_euro",
+    "smoothing_factor": 5,
+    "one_euro": {
+      "min_cutoff": 1.0,
+      "beta": 0.007,
+      "d_cutoff": 1.0
+    },
+    "pointer_landmark": 8
+  },
+  "gestures": {
+    "pinch_on_threshold": 0.055,
+    "pinch_off_threshold": 0.080,
+    "pinch_norm_on": 0.18,
+    "pinch_norm_off": 0.25,
+    "scroll_sensitivity": 5,
+    "click_cooldown_ms": 250,
+    "consecutive_frames_required": 2,
+    "drag_hold_frames": 8,
+    "fist_threshold": 0.15,
+    "open_palm_threshold": 0.25
+  },
+  "ml_gesture": {
+    "model_path": "models/custom_gestures.joblib",
+    "confidence_threshold": 0.85,
+    "stability_frames": 5,
+    "samples_per_gesture": 250
+  },
+  "voice": {
+    "enabled": false,
+    "model_path": "models/vosk-model-small-en-us",
+    "sample_rate": 16000,
+    "push_to_talk": false,
+    "push_to_talk_key": "ctrl"
+  },
+  "modes": {
+    "default": "normal",
+    "available": ["normal", "presentation", "gaming"]
+  },
+  "accessibility": {
+    "dwell_click_enabled": false,
+    "dwell_time_ms": 1500,
+    "one_hand_mode": "right",
+    "left_handed": false,
+    "tremor_filter": false,
+    "tremor_dead_zone": 0.02,
+    "high_contrast_ui": false,
+    "large_text": false,
+    "gesture_hold_time_ms": 500,
+    "gesture_cooldown_ms": 1000,
+    "voice_only_mode": false,
+    "gesture_only_mode": false
+  },
+  "ui": {
+    "show_preview": true,
+    "show_landmarks": true,
+    "show_fps": true,
+    "show_gesture_label": true,
+    "show_gesture_guide": true,
+    "overlay_enabled": true,
+    "overlay_opacity": 0.7
+  },
+  "failsafe": {
+    "enabled": true,
+    "hotkey": "F8",
+    "pyautogui_failsafe": true
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "touchless_control.log",
+    "max_bytes": 5242880,
+    "backup_count": 3
+  }
+}

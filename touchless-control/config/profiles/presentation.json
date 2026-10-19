@@ -1,0 +1,17 @@
+{
+  "name": "Presentation",
+  "description": "Touch-free presentation control",
+  "gesture_map": {
+    "swipe_right": {"action": "key_press", "action_params": {"key": "right"}, "description": "Next slide"},
+    "swipe_left": {"action": "key_press", "action_params": {"key": "left"}, "description": "Previous slide"},
+    "index_up": {"action": "laser_pointer", "description": "On-screen laser dot"},
+    "open_palm_hold": {"action": "key_press", "action_params": {"key": "b"}, "description": "Black screen"},
+    "fist": {"action": "key_press", "action_params": {"key": "escape"}, "description": "End show"},
+    "pinch_zoom": {"action": "zoom", "description": "Zoom in/out"}
+  },
+  "overlay": {
+    "laser_color": [255, 0, 0],
+    "laser_radius": 10,
+    "laser_glow": true
+  }
+}

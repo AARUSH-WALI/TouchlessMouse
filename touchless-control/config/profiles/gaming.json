@@ -1,0 +1,26 @@
+{
+  "name": "Gaming",
+  "description": "Low-latency gaming controls",
+  "camera_overrides": {
+    "width": 320,
+    "height": 240,
+    "fps_cap": 60,
+    "process_every_n_frames": 1
+  },
+  "cursor_overrides": {
+    "smoothing_factor": 2,
+    "one_euro": {
+      "min_cutoff": 2.0,
+      "beta": 0.01
+    }
+  },
+  "gesture_map": {
+    "hand_left": {"action": "key_press", "action_params": {"key": "a"}},
+    "hand_right": {"action": "key_press", "action_params": {"key": "d"}},
+    "hand_up": {"action": "key_press", "action_params": {"key": "w"}},
+    "hand_down": {"action": "key_press", "action_params": {"key": "s"}},
+    "thumb_index_pinch": {"action": "key_press", "action_params": {"key": "space"}, "description": "Jump"},
+    "fist": {"action": "left_click", "description": "Attack"}
+  },
+  "demo_games": ["browser_dino_runner", "simple_racing"]
+}

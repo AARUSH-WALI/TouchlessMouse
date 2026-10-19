@@ -1,0 +1,46 @@
+Touchless Computer Control System - Third-Party Open Source Licenses
+====================================================================
+
+This software utilizes the following open-source third-party libraries:
+
+1. MediaPipe
+   - License: Apache License 2.0
+   - Copyright: Google LLC
+   - URL: https://github.com/google-ai-edge/mediapipe
+
+2. OpenCV (opencv-python)
+   - License: Apache License 2.0
+   - Copyright: OpenCV Foundation
+   - URL: https://github.com/opencv/opencv-python
+
+3. PyAutoGUI
+   - License: BSD 3-Clause License
+   - Copyright: Al Sweigart
+   - URL: https://github.com/asweigart/pyautogui
+
+4. pynput
+   - License: GNU Lesser General Public License v3.0 (LGPLv3)
+   - Copyright: Moses Palmér
+   - URL: https://github.com/moses-palmer/pynput
+
+5. CustomTkinter
+   - License: MIT License
+   - Copyright: Tom Schimansky
+   - URL: https://github.com/TomSchimansky/CustomTkinter
+
+6. NumPy
+   - License: BSD 3-Clause License
+   - Copyright: NumPy Developers
+   - URL: https://numpy.org/
+
+7. scikit-learn
+   - License: BSD 3-Clause License
+   - Copyright: scikit-learn developers
+   - URL: https://scikit-learn.org/
+
+8. Vosk API
+   - License: Apache License 2.0
+   - Copyright: Alpha Cephei Inc.
+   - URL: https://github.com/alphacep/vosk-api
+
+All libraries are used in compliance with their respective open-source licensing terms.

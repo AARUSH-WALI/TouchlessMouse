@@ -1,0 +1,16 @@
+{
+  "name": "Normal",
+  "description": "Default desktop navigation profile",
+  "cursor_overrides": {
+    "smoothing_factor": 5,
+    "smoothing_type": "one_euro"
+  },
+  "gesture_map": {
+    "index_up": {"action": "move_cursor", "description": "Pointer tracking"},
+    "thumb_index_pinch": {"action": "left_click", "description": "Left click / Drag"},
+    "thumb_middle_pinch": {"action": "right_click", "description": "Right click"},
+    "index_middle_up": {"action": "scroll", "description": "Scroll"},
+    "open_palm": {"action": "pause_tracking", "description": "Pause tracking"},
+    "fist": {"action": "idle", "description": "Idle / Neutral"}
+  }
+}

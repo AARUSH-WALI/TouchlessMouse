@@ -1,0 +1,1072 @@
+/* ==========================================================================
+   Touchless Document & PDF Evaluation Studio — Design System & Styles
+   ========================================================================== */
+
+:root {
+  --bg-dark: #090d16;
+  --bg-canvas: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.75);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --accent-emerald: #00e599;
+  --accent-cyan: #00d2ff;
+  --accent-violet: #8b5cf6;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --glass-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  --glow-emerald: 0 0 20px rgba(0, 229, 153, 0.35);
+  --glow-cyan: 0 0 20px rgba(0, 210, 255, 0.35);
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Top Interactive Navbar
+   -------------------------------------------------------------------------- */
+header.app-header {
+  height: 64px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  position: relative;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: var(--glow-emerald);
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.01em;
+}
+
+.brand-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: rgba(0, 229, 153, 0.15);
+  border: 1px solid rgba(0, 229, 153, 0.4);
+  color: var(--accent-emerald);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Toolbar Controls */
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00b074, #0088cc);
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 176, 116, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #00cb85, #00a0f0);
+  box-shadow: var(--glow-emerald);
+}
+
+.btn-pulse {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(0, 229, 153, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 229, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 229, 153, 0); }
+}
+
+.btn-active {
+  background: var(--accent-emerald) !important;
+  color: #04140c !important;
+  font-weight: 600;
+  border-color: var(--accent-emerald) !important;
+}
+
+/* Page Navigation Pill */
+.nav-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nav-pill .btn {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 8px 12px;
+}
+
+.nav-pill .btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.page-indicator-wrapper {
+  padding: 0 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-input {
+  width: 38px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 2px 4px;
+}
+
+/* Zoom Control Pill */
+.zoom-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 2px 6px;
+  gap: 4px;
+}
+
+.zoom-pill button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background 0.15s ease;
+}
+
+.zoom-pill button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.zoom-level-text {
+  font-size: 0.82rem;
+  min-width: 48px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Workspace & PDF Stage
+   -------------------------------------------------------------------------- */
+main#workspace-container {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at 50% 20%, #172033 0%, #090d16 85%);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 80px 20px;
+  scroll-behavior: smooth;
+}
+
+/* Document Paper Wrapper */
+.document-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  transform-origin: top center;
+  transition: transform 0.15s ease-out;
+  min-height: min-content;
+}
+
+.pdf-page-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.2s ease;
+}
+
+.pdf-page-card:hover {
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8);
+}
+
+.pdf-page-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Loading Spinner & Status */
+#pdf-loading-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 32px 48px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(12px);
+  z-index: 40;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(0, 229, 153, 0.15);
+  border-top-color: var(--accent-emerald);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Presentation Laser Pointer & Virtual Cursor
+   -------------------------------------------------------------------------- */
+#laser-pointer {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff0055;
+  box-shadow: 0 0 18px #ff0055, 0 0 35px #ff0077, 0 0 50px rgba(255, 0, 85, 0.6);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  display: none;
+  transition: width 0.1s, height 0.1s, background-color 0.1s;
+}
+
+#laser-pointer.pinch-active {
+  width: 26px;
+  height: 26px;
+  background: #00e599;
+  box-shadow: 0 0 20px #00e599, 0 0 40px rgba(0, 229, 153, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   Live Action Feedback Toast & Banner
+   -------------------------------------------------------------------------- */
+#gesture-banner {
+  position: fixed;
+  top: 84px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--accent-emerald);
+  box-shadow: var(--glow-emerald);
+  border-radius: 30px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-emerald);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+}
+
+#gesture-banner.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Floating Picture-in-Picture Webcam Monitor
+   -------------------------------------------------------------------------- */
+#pip-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 230px;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 153, 0.15);
+  backdrop-filter: blur(16px);
+  z-index: 200;
+  display: none;
+  flex-direction: column;
+  transition: width 0.25s ease, height 0.25s ease;
+}
+
+#pip-container.minimized {
+  width: 190px;
+}
+
+#pip-container.minimized #pip-media-wrapper,
+#pip-container.minimized .hud-panel {
+  display: none !important;
+}
+
+.pip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.pip-header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pip-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.pip-title {
+  color: #F8FAFC;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.pip-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pip-tool-btn {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pip-tool-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #F8FAFC;
+}
+
+.pip-tool-btn.active {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34D399;
+}
+
+.pip-close-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+}
+
+/* Collapsible HUD Panels */
+.hud-panel {
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.72rem;
+  color: #CBD5E1;
+}
+
+.panel-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  color: #94A3B8;
+  font-size: 0.68rem;
+}
+
+.hud-select {
+  width: 100%;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.95);
+  color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.72rem;
+  outline: none;
+}
+
+.panel-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.panel-link-btn {
+  background: none;
+  border: none;
+  color: #38BDF8;
+  font-size: 0.65rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.setting-item {
+  margin-bottom: 9px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  font-size: 0.68rem;
+}
+
+.highlight-val {
+  color: #34D399;
+  font-weight: 700;
+}
+
+.hud-slider {
+  width: 100%;
+  accent-color: #10B981;
+  cursor: pointer;
+  height: 4px;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.58rem;
+  color: #64748B;
+  margin-top: 1px;
+}
+
+.setting-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hud-pill-btn {
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hud-pill-btn.standard {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.2);
+  color: #38BDF8;
+}
+
+/* Media Wrapper */
+#pip-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  background: #000000;
+  overflow: hidden;
+}
+
+#webcam-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  opacity: 0.95;
+}
+
+#webcam-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* No scaleX(-1) because JS draws (1.0 - p.x) * w already! */
+}
+
+.pip-status-bar {
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #F8FAFC;
+}
+
+#pip-gesture-label {
+  color: #38BDF8;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+.pip-status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+}
+
+#pip-quota-badge {
+  color: #A855F7;
+  font-weight: 700;
+}
+
+#pip-fps-label {
+  color: #94A3B8;
+  font-size: 0.65rem;
+}
+
+/* --------------------------------------------------------------------------
+   Quick Gesture Guide Cheat Sheet
+   -------------------------------------------------------------------------- */
+#gesture-guide-card {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  width: 290px;
+  z-index: 90;
+  box-shadow: var(--glass-shadow);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#gesture-guide-card.collapsed {
+  opacity: 0.4;
+  transform: translateY(calc(100% - 46px));
+}
+
+#gesture-guide-card:hover {
+  opacity: 1;
+}
+
+.guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.guide-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guide-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 4px 0;
+  color: var(--text-secondary);
+}
+
+.guide-row .gesture-label {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.guide-row .action-label {
+  color: var(--accent-emerald);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Evaluation Synopsis Modal
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-content {
+  background: #0f172a;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 780px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+  padding: 32px;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-section {
+  margin-bottom: 24px;
+}
+
+.modal-section h4 {
+  font-size: 1.05rem;
+  color: var(--accent-emerald);
+  margin-bottom: 8px;
+}
+
+.modal-section p, .modal-section li {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.metric-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+
+.metric-val {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Multi-Domain Workspace Suite Styling
+   ========================================================================== */
+
+/* Mode Tabs in Header */
+.mode-tabs-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mode-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mode-tab:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mode-tab.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Contextual Sub-Toolbar */
+.context-toolbar-bar {
+  height: 48px;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  z-index: 95;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.toolbar-mode-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-sm {
+  padding: 5px 11px;
+  font-size: 0.78rem;
+}
+
+.pacs-study-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.pacs-select {
+  background: rgba(15, 23, 42, 0.95);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.window-presets-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 3px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preset-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-btn:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.preset-btn.active {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+/* Workspace Panels */
+.workspace-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Medical PACS Stage */
+.pacs-stage-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.pacs-monitor-card {
+  position: relative;
+  background: #000000;
+  border: 2px solid #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(56, 189, 248, 0.12);
+}
+
+.pacs-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.pacs-meta-title {
+  display: block;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #38bdf8;
+  letter-spacing: 0.04em;
+}
+
+.pacs-meta-sub {
+  display: block;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.pacs-footer-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  color: #38bdf8;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#medical-canvas {
+  display: block;
+  width: 620px;
+  height: 620px;
+  background: #000000;
+  cursor: crosshair;
+}
+
+/* CAD Blueprint Stage */
+.cad-stage-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.cad-blueprint-card {
+  position: relative;
+  background: #021226;
+  border: 2px solid #0369a1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(2, 132, 199, 0.2);
+}
+
+.cad-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  background: rgba(2, 18, 38, 0.9);
+  border-bottom: 1px solid rgba(3, 105, 161, 0.4);
+  font-size: 0.78rem;
+  z-index: 10;
+}
+
+.cad-footer-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 12px;
+  background: rgba(2, 18, 38, 0.9);
+  border-top: 1px solid rgba(3, 105, 161, 0.4);
+  font-size: 0.72rem;
+  color: #38bdf8;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#cad-canvas {
+  display: block;
+  width: 820px;
+  height: 540px;
+  background: #021226;
+  cursor: crosshair;
+}

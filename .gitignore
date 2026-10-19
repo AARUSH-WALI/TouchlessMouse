@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS & Editor
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs
+*.log

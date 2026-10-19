@@ -1,0 +1,20 @@
+{
+  "name": "Accessibility",
+  "description": "Accessibility profile with dwell click and tremor filtering",
+  "cursor_overrides": {
+    "smoothing_factor": 8,
+    "one_euro": {
+      "min_cutoff": 0.5,
+      "beta": 0.003
+    }
+  },
+  "accessibility_overrides": {
+    "dwell_click_enabled": true,
+    "dwell_time_ms": 1500,
+    "tremor_filter": true,
+    "tremor_dead_zone": 0.03,
+    "large_text": true,
+    "gesture_hold_time_ms": 700,
+    "gesture_cooldown_ms": 1200
+  }
+}
