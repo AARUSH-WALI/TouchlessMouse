@@ -645,6 +645,106 @@ main#workspace-container {
 }
 
 /* --------------------------------------------------------------------------
+   Multi-Model AI Architecture Live Telemetry Card
+   -------------------------------------------------------------------------- */
+#ai-ensemble-badge {
+  position: fixed;
+  bottom: 246px;
+  left: 24px;
+  width: 300px;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 14px;
+  padding: 12px 14px;
+  z-index: 90;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.15);
+  font-family: var(--font-body);
+}
+
+.ai-badge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 8px;
+}
+
+.ai-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation: pulse-dot 1.4s infinite;
+}
+
+.ai-badge-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.02em;
+}
+
+.ai-badge-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.ai-model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ai-model-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.67rem;
+  gap: 6px;
+}
+
+.model-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.model-tag.m1 { background: rgba(0, 229, 153, 0.15); color: #00e599; border: 1px solid rgba(0, 229, 153, 0.3); }
+.model-tag.m2 { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+.model-tag.m3 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.model-tag.m4 { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+
+.model-name {
+  color: #94a3b8;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.model-status {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.model-status.highlight {
+  color: #34d399;
+}
+
+/* --------------------------------------------------------------------------
    Quick Gesture Guide Cheat Sheet
    -------------------------------------------------------------------------- */
 #gesture-guide-card {
